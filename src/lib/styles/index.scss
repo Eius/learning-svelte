@@ -1,0 +1,11 @@
+@import './custom_bootstrap';
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+* {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}

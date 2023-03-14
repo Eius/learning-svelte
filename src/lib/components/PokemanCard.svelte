@@ -1,32 +1,47 @@
 <script lang="ts">
-    import type { LoadedPokemon } from "../../scripts/interfaces/PokemonInterface";
+	import type { LoadedPokemon } from '../../scripts/interfaces/PokemonInterface';
+	import { fade } from 'svelte/transition';
 
-    export let pokeman: LoadedPokemon;
+	export let pokeman: LoadedPokemon;
 </script>
 
-<div class="col-4">
-    <div class="card d-flex align-items-center">
-        <img src={pokeman.image} alt={pokeman.name + "-image"}>
-        <h5 class="p-2">{pokeman.id}. {pokeman.name}</h5>
-    </div>
+<div class="col-12 col-md-6 col-lg-4" transition:fade={{ duration: 200, delay: 100 }}>
+	<a href="/pokemon/{pokeman.id}">
+		<div class="card d-flex align-items-center">
+			<img src={pokeman.image} alt={pokeman.name + '-image'} />
+			<h5 class="p-2">{pokeman.id}. {pokeman.name}</h5>
+		</div>
+	</a>
 </div>
 
 <style lang="scss">
-    @import "../styles/custom_variables";
+	@import '../styles/custom_variables';
 
-    .card {
-        background-color: $light;
-        border: 1px solid $dark;
-        border-radius: 3px;
-    }
+	.card {
+		background-color: $light;
+		border: 1px solid $dark;
+		border-radius: 3px;
+	}
 
-    h5 {
-        text-transform: capitalize;
-    }
+	a {
+		text-decoration: none;
+		color: $body-color;
+	}
 
-    img {
-        width: 45%;
-        height: auto;
-    }
+    a div {
+		transition: box-shadow .1s linear;
+	}
 
+	a:hover div {
+		box-shadow: 0 0 8px black;
+	}
+
+	h5 {
+		text-transform: capitalize;
+	}
+
+	img {
+		width: 45%;
+		height: auto;
+	}
 </style>

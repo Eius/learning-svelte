@@ -11,7 +11,6 @@
 	a {
 		text-decoration: none;
         font-weight: 600;
-        color: #212529;
 	}
 
     a:hover {

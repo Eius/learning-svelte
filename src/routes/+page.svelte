@@ -1,18 +1,19 @@
 <script lang="ts">
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import PokemanCard from '$lib/components/PokemanCard.svelte';
-	import { pokemon } from '../scripts/stores/PokeStore';
 	import type { LoadedPokemon } from '../scripts/interfaces/PokemonInterface';
+
+	export let data;
+	const { pokemon } = data;
 
 	let searchTerm = '';
 	let filteredPokemon: LoadedPokemon[] = [];
 
 	$: {
-		console.log(searchTerm);
 		if (searchTerm) {
-			filteredPokemon = $pokemon.filter(pokeman => pokeman.name.includes(searchTerm));
+			filteredPokemon = pokemon.filter((pokeman: LoadedPokemon) => pokeman.name.toLowerCase().includes(searchTerm.toLowerCase()));
 		} else {
-			filteredPokemon = [...$pokemon];
+			filteredPokemon = [...pokemon];
 		}
 	}
 </script>

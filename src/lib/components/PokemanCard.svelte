@@ -29,11 +29,11 @@
 	}
 
     a div {
-		transition: box-shadow .1s linear;
+		transition: box-shadow .15s linear;
 	}
 
 	a:hover div {
-		box-shadow: 0 0 8px black;
+		box-shadow: 0 0 0 4px #b7b7b7;
 	}
 
 	h5 {

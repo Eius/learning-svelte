@@ -42,5 +42,6 @@
 
 	input {
 		border-radius: 3px;
+		border-color: $dark;
 	}
 </style>
